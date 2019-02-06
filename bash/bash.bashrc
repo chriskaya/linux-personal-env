@@ -525,6 +525,10 @@ bash_config () {
 	    . /usr/share/bash-completion/bash_completion
 	  elif [ -f /etc/bash_completion ]; then
 	    . /etc/bash_completion
+	  elif [ -d /etc/bash_completion.d ]; then
+	    for file in /etc/bash_completion.d/* ; do
+              source "$file"
+            done
 	  fi
 	fi
 
